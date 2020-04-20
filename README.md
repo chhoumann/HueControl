@@ -1,6 +1,6 @@
-# HueControl2
+# HueControl
 
-> NuxtJS HueControl
+> NuxtJS HueControl.
 
 ## Build Setup
 
