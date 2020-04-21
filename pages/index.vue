@@ -7,8 +7,15 @@
     <TopBar v-on:switch-all="switchAll" />
 
     <v-content>
-      <LightContainer v-bind:lights="lights" v-on:switch-light="switchLight" />
-      <TabbedLights v-bind:lights="lights" />
+      <LightContainer
+      v-bind:lights="lights"
+      v-on:switch-light="switchLight" />
+
+      <TabbedLights
+      v-bind:lights="lights"
+      v-on:hue-change="hueChange"
+      v-on:bri-change="brightnessChange"
+      v-on:sat-change="saturationChange" />
     </v-content>
 
   </v-app>
@@ -44,7 +51,10 @@ export default {
     async switchAll() {
       const lightIDs = this.lights.map(light => light.id)
       lightIDs.forEach(id => this.switchLight(id));
-    }
+    },
+    async hueChange(newHue, id) { await axios.get('/hueChange', { params: { newHue, id }}) },
+    async brightnessChange(newBrightness, id) { await axios.get('/brightnessChange', {params: {newBrightness, id}}) },
+    async saturationChange(newSaturation, id) { await axios.get('/saturationChange', {params: {newSaturation, id}}) },
   },
   components: {
     TopBar,

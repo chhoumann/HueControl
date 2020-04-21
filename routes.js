@@ -14,4 +14,23 @@ router.get('/switchLight', async (req, res) => {
   res.send(newState);
 });
 
+router.get('/hueChange', async (req, res) => {
+  const {newHue, id} = req.query;
+  const newState = await lightSwitch.newHue(newHue, id);
+  res.end(`${newState}`);
+});
+
+router.get('/brightnessChange', async (req, res) => {
+  const {newBrightness, id} = req.query;
+  const newState = await lightSwitch.newBrightness(newBrightness, id);
+  res.end(`${newState}`);
+});
+
+router.get('/saturationChange', async (req, res) => {
+  const {newSaturation, id} = req.query;
+  const newState = await lightSwitch.newSaturation(newSaturation, id);
+  res.end(`${newState}`);
+});
+
+
 module.exports = router;

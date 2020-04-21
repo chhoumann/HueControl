@@ -20,6 +20,8 @@
           :dotSize="40"
           :dragOnClick="true"
           v-model="light.hue"
+          :lazy="true"
+          @change="$emit('hue-change', light.hue, light.id)"
           ></vue-slider>
 
           <h2>Brightness</h2>
@@ -31,6 +33,8 @@
           :dotSize="40"
           :dragOnClick="true"
           v-model="light.bri"
+          :lazy="true"
+          @change="$emit('bri-change', light.bri, light.id)"
           ></vue-slider>
 
           <h2>Saturation</h2>
@@ -42,9 +46,12 @@
           :dotSize="40"
           :dragOnClick="true"
           v-model="light.sat"
+          :lazy="true"
+          @change="$emit('sat-change', light.sat, light.id)"
           ></vue-slider>
         </v-card>
       </v-tab-item>
+      <PredefinedColors />
     </v-tabs-items>
   </v-card>
 </template>
@@ -52,6 +59,7 @@
 <script>
 // import component
 import VueSlider from 'vue-slider-component/dist-css/vue-slider-component.umd.min.js'
+import PredefinedColors from './PredefinedColors'
 import 'vue-slider-component/dist-css/vue-slider-component.css'
 
 // import theme
@@ -62,6 +70,7 @@ export default {
   props: ["lights"],
   components: {
     VueSlider,
+    PredefinedColors,
   },
   data() {
     return {
