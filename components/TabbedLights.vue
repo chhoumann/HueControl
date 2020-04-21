@@ -8,8 +8,6 @@
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="light in lights" :key="light.id">
         <v-card align="center" flat>
-          <!-- <h1 class="display-2" id="header">Controls for Light {{ light.id }}</h1>
-          <v-divider></v-divider> -->
           <br>
           <h2>Hue</h2>
           <vue-slider
@@ -59,8 +57,8 @@
 <script>
 // import component
 import VueSlider from 'vue-slider-component/dist-css/vue-slider-component.umd.min.js'
-import PredefinedColors from './PredefinedColors'
 import 'vue-slider-component/dist-css/vue-slider-component.css'
+import PredefinedColors from './PredefinedColors'
 
 // import theme
 import 'vue-slider-component/theme/default.css'
@@ -75,16 +73,11 @@ export default {
   data() {
     return {
       tab: null,
-      briVal: 0,
-      hueVal: 0,
-      satVal: 0,
     }
   }
 }
 </script>
 
 <style scoped>
-  .slider {
-    width: 50%;
-  }
+
 </style>

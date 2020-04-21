@@ -52,9 +52,18 @@ export default {
       const lightIDs = this.lights.map(light => light.id)
       lightIDs.forEach(id => this.switchLight(id));
     },
-    async hueChange(newHue, id) { await axios.get('/hueChange', { params: { newHue, id }}) },
-    async brightnessChange(newBrightness, id) { await axios.get('/brightnessChange', {params: {newBrightness, id}}) },
-    async saturationChange(newSaturation, id) { await axios.get('/saturationChange', {params: {newSaturation, id}}) },
+    async hueChange(newHue, id) {
+      await axios.post('/hueChange', { newHue, id });
+      this.lights[id - 1].hue = newHue;
+    },
+    async brightnessChange(newBrightness, id) {
+      await axios.post('/brightnessChange', { newBrightness, id });
+      this.lights[id - 1].bri = newBrightness;
+    },
+    async saturationChange(newSaturation, id) {
+      await axios.post('/saturationChange', { newSaturation, id });
+      this.lights[id - 1].sat = newSaturation;
+    },
   },
   components: {
     TopBar,

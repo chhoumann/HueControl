@@ -33,20 +33,17 @@ module.exports.lightSwitch = async (id) => {
 module.exports.newHue = async (newHue, id) => {
   const light = await client.lights.getById(id);
   light.hue = parseInt(newHue);
-  const {state: {attributes: { hue }}} = await client.lights.save(light);
-  return hue;
+  return await client.lights.save(light);
 };
 
 module.exports.newBrightness = async (newBrightness, id) => {
   const light = await client.lights.getById(id);
   light.brightness = parseInt(newBrightness);
-  const {state: {attributes: { bri }}} = await client.lights.save(light);
-  return bri;
+  return await client.lights.save(light);
 };
 
 module.exports.newSaturation = async (newSaturation, id) => {
   const light = await client.lights.getById(id);
   light.saturation = parseInt(newSaturation);
-  const {state: {attributes: { sat }}} = await client.lights.save(light);
-  return sat;
+  return await client.lights.save(light);
 };

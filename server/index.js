@@ -4,6 +4,11 @@ const { Nuxt, Builder } = require('nuxt')
 const routes = require('../routes');
 const app = express()
 
+// For parsing POST requests.
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
@@ -23,7 +28,7 @@ async function start () {
 
   // Custom routes
   app.use('/', routes)
-  
+
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
