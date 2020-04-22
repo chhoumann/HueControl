@@ -11,6 +11,7 @@
           <br>
           <h2>Hue</h2>
           <vue-slider
+          :disabled="light.on ? false : true"
           :min="0"
           :max="65535"
           width="75%"
@@ -24,6 +25,7 @@
 
           <h2>Brightness</h2>
           <vue-slider
+          :disabled="light.on ? false : true"
           :min="0"
           :max="254"
           width="75%"
@@ -37,6 +39,7 @@
 
           <h2>Saturation</h2>
           <vue-slider
+          :disabled="light.on ? false : true"
           :min="0"
           :max="254"
           width="75%"
