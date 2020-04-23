@@ -6,7 +6,7 @@
     <!-- TOP BAR -->
     <TopBar v-on:switch-all="switchAll" />
 
-    <setupDialog v-if="!hasRunSetup" v-bind:foundBridge="this.hasRunSetup" v-on:load-page="loadPage" />
+    <setupDialog v-if="!hasRunSetup" v-on:load-page="loadPage" />
     <v-content v-else>
       <LightContainer
       v-bind:lights="lights"
