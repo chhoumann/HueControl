@@ -1,10 +1,15 @@
 # HueControl
-## Desktop Screenshot
-![Desktop screenshot of HueControl](https://user-images.githubusercontent.com/29108628/79912906-13da0b00-8423-11ea-8c04-be015bc630f8.png)
-## iPhone X screenshot
-![iPhone X screenshot of HueControl](https://user-images.githubusercontent.com/29108628/79912912-16d4fb80-8423-11ea-8e37-ee56aebec380.png)
+## Current Features
+See screenshots [here](https://github.com/chhoumann/HueControl/issues/1).
 
-> NuxtJS HueControl.
+* Guided setup - finished in just two clicks (Bridge button and 'Continue')
+* Automatic detection of Hue Bridge
+* Automatic detection of connected lights
+* Desktop & Mobile friendly UI (see screenshots)
+* Control over hue, brightness, and saturation of your lights via sliders
+
+This was made to be run on something like a Raspberry Pi (or on your own computer). Easily and always accessible so that you can control your lights quickly and easily within your home.
+
 
 ## Build Setup
 
