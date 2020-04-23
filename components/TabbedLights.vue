@@ -52,7 +52,8 @@
           ></vue-slider>
         </v-card>
       </v-tab-item>
-      <PredefinedColors />
+      <!-- WIP -->
+      <!-- <PredefinedColors /> -->
     </v-tabs-items>
   </v-card>
 </template>

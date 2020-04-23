@@ -63,13 +63,7 @@ module.exports.hasRunSetup = async function hasRunSetup() {
   let data;
   try {
     data = await fs.readFileSync(filePath);
-  }
-  catch (error) {
-    // Can't read file
-    console.error(error.message);
-    return false;
-  }
-  finally {
+
     // Parse read data and extract important bits.
     const parsedData = JSON.parse(data);
     const {config: { host, username }} = parsedData;
@@ -81,5 +75,11 @@ module.exports.hasRunSetup = async function hasRunSetup() {
 
     return parsedData;
   }
+  catch (error) {
+    // Can't read file
+    //console.error(error.message);
+    return false;
+  }
+
 }
 

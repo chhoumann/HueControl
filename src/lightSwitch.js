@@ -3,13 +3,19 @@ const initialSetup = require('./initialSetup');
 
 // Loads userData file in order to get ip of bridge and username.
 let client = "";
-(async () => {
+module.exports.getBridgeClient = async () => {
   const hasRunSetup = await initialSetup.hasRunSetup();
+  // If the initial setup has run, just read the data.
+  // If not, then run it and try again in 150 ms.
   if (hasRunSetup) {
     const {config} = hasRunSetup;
     client = new huejay.Client(config);
+    return true;
+  } else {
+    await initialSetup.initialSetup();
+    return false;
   }
-})();
+};
 
 module.exports.getLightStatus = async () => {
   let lightStatuses = [];

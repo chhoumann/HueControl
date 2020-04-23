@@ -6,7 +6,8 @@
     <!-- TOP BAR -->
     <TopBar v-on:switch-all="switchAll" />
 
-    <v-content>
+    <setupDialog v-if="!hasRunSetup" v-bind:foundBridge="this.hasRunSetup" v-on:load-page="loadPage" />
+    <v-content v-else>
       <LightContainer
       v-bind:lights="lights"
       v-on:switch-light="switchLight" />
@@ -28,22 +29,32 @@ import TabbedLights from '../components/TabbedLights';
 import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.css';
 
+import SetupDialog from '../components/SetupDialog';
+
 export default {
   data () {
     return {
+      hasRunSetup: false,
       lights: [],
     }
   },
-  created() {
-    const getLights = async () => {
+  async created() {
+    // When app is created, see if bridge is connected.
+    try {
+      const {data: {readyStatus}} = await axios.get('/getBridgeClient');
+      this.hasRunSetup = readyStatus;
+    } catch (error) {}
+
+    // If the bridge is connected, we're free to get the lights.
+    if (this.hasRunSetup) await this.getLights()
+  },
+  methods: {
+    async getLights() {
       try {
         const { data } = await axios.get('/getAllLights');
         this.lights = data;
       } catch (error) {}
-    }
-    getLights()
-  },
-  methods: {
+    },
     async switchLight(id) {
       const { data } = await axios.get('/switchLight', {params: {id}});
       this.lights[id - 1].on = data;
@@ -64,11 +75,16 @@ export default {
       await axios.post('/saturationChange', { newSaturation, id });
       this.lights[id - 1].sat = newSaturation;
     },
+    async loadPage() {
+      await this.getLights();
+      this.hasRunSetup = true;
+    },
   },
   components: {
     TopBar,
     LightContainer,
     TabbedLights,
+    SetupDialog,
   }
 }
 </script>

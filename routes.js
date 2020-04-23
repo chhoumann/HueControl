@@ -2,8 +2,15 @@ const lightSwitch = require('./src/lightSwitch');
 const express = require('express');
 const router = express.Router();
 
+// Get client
+router.get('/getBridgeClient', async (req, res) => {
+  const readyStatus = await lightSwitch.getBridgeClient();
+  res.send({readyStatus});
+})
+
 // Send all light IDs to user
 router.get('/getAllLights', async (req, res) => {
+  console.log("Received request");
   const fetchedLights = await lightSwitch.getLightStatus();
   res.send(fetchedLights);
 });
