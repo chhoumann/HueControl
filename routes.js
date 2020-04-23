@@ -10,7 +10,6 @@ router.get('/getBridgeClient', async (req, res) => {
 
 // Send all light IDs to user
 router.get('/getAllLights', async (req, res) => {
-  console.log("Received request");
   const fetchedLights = await lightSwitch.getLightStatus();
   res.send(fetchedLights);
 });
