@@ -51,9 +51,10 @@
           @change="$emit('sat-change', light.sat, light.id)"
           ></vue-slider>
         </v-card>
+      <PredefinedColors v-bind:light="light"/>
       </v-tab-item>
-      <!-- WIP -->
-      <!-- <PredefinedColors /> -->
+
+
     </v-tabs-items>
   </v-card>
 </template>

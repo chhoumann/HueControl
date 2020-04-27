@@ -53,3 +53,11 @@ module.exports.newSaturation = async (newSaturation, id) => {
   light.saturation = parseInt(newSaturation);
   return await client.lights.save(light);
 };
+
+module.exports.changeToColor = async (newHue, newSaturation, newBrightness, id) => {
+  const light = await client.lights.getById(id);
+  light.hue = parseInt(newHue);
+  light.saturation = parseInt(newSaturation);
+  light.brightness = parseInt(newBrightness);
+  return await client.lights.save(light);
+}

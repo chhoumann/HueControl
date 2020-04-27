@@ -38,4 +38,10 @@ router.post('/saturationChange', async (req, res) => {
   res.end();
 });
 
+router.post('/changeToColor', async (req, res) => {
+  const {id, hue, sat, bri} = req.body;
+  await lightSwitch.changeToColor(hue, sat, bri, id);
+  res.end();
+})
+
 module.exports = router;
