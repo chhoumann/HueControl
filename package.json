@@ -1,6 +1,6 @@
 {
   "name": "hue-control",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "NuxtJS HueControl",
   "author": "Christian Bager Bach Houmann",
   "private": true,
