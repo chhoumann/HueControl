@@ -7,6 +7,7 @@ See screenshots [here](https://github.com/chhoumann/HueControl/issues/1).
 * Automatic detection of connected lights
 * Desktop & Mobile friendly UI (see screenshots)
 * Control over hue, brightness, and saturation of your lights via sliders
+* Easily switch your lights to a predefined color
 
 This was made to be run on something like a Raspberry Pi (or on your own computer). Easily and always accessible so that you can control your lights quickly and easily within your home.
 
