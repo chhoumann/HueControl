@@ -24,12 +24,12 @@
 
 <script>
 import TopBar from '../components/TopBar';
+import SetupDialog from '../components/SetupDialog';
 import LightContainer from '../components/LightContainer';
 import TabbedLights from '../components/TabbedLights';
 import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-import SetupDialog from '../components/SetupDialog';
 
 export default {
   data () {
