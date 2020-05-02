@@ -88,3 +88,14 @@ export default {
   }
 }
 </script>
+
+// Style to prevent scrolling sideways.
+<style scoped>
+  body {
+      overflow-x: hidden !important;
+  }
+  .container {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+  }
+</style>
