@@ -9,7 +9,9 @@
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production HOST=0.0.0.0 PORT=3000 node server/index.js",
     "generate": "nuxt generate",
-    "test": "jest"
+    "test": "jest",
+    "dockerBuild": "docker build -t huecontrol .",
+    "dockerRun": "docker run --name huecontrol -p 3000:3000 huecontrol"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
