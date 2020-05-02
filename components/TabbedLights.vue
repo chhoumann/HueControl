@@ -5,7 +5,7 @@
         Light {{ light.id }}
       </v-tab>
     </v-tabs>
-    <v-tabs-items v-model="tab">
+    <v-tabs-items v-model="tab" touchless>
       <v-tab-item v-for="light in lights" :key="light.id">
         <v-card align="center" flat>
           <br>
